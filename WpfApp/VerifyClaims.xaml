@@ -1,0 +1,27 @@
+﻿<Window x:Class="CMCS.VerifyClaims"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Verify Claims" Height="500" Width="800" Background="#F2F4F5">
+    <Grid Margin="20">
+
+        <TextBlock Text="Verify Submitted Claims" FontSize="24" FontWeight="Bold" Foreground="#333" HorizontalAlignment="Left" />
+
+        <GroupBox Header="Submitted Claims" BorderBrush="#AAA" FontWeight="Bold" Padding="10" Margin="0,40,0,80">
+            <DataGrid x:Name="ClaimsDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" Background="WhiteSmoke" BorderBrush="#AAA" Height="250">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Claim ID" Width="100" Binding="{Binding ClaimID}" />
+                    <DataGridTextColumn Header="Lecturer" Width="220" Binding="{Binding LecturerName}" />
+                    <DataGridTextColumn Header="Total Hours" Width="120" Binding="{Binding TotalHours}" />
+                    <DataGridTextColumn Header="Total Amount" Width="115" Binding="{Binding TotalAmount}" />
+                    <DataGridTextColumn Header="Status" Width="150" Binding="{Binding Status}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0">
+            <Button Content="Approve" Width="100" Height="35" Margin="0,0" Background="#28A745" Foreground="White" Click="ApproveClaim_Click" />
+            <Button Content="Reject" Width="100" Height="35" Margin="10,0" Background="#DC3545" Foreground="White" Click="RejectClaim_Click" />
+            <Button Content="Close" Width="100" Height="35" Margin="0,0" Background="#6C757D" Foreground="White" Click="CloseButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
